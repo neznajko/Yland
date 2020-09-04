@@ -43,6 +43,7 @@ HRZ, VRT = 0, 1
 Shape = None     # map dimensions
 Const = [[], []] # constrains
 debug = False
+
 ################################### LOAD
 def load(filename):
   '''Load Input Data'''
@@ -156,4 +157,8 @@ if __name__ == '__main__':
   yland()
 
 ################################### log:
-#
+# Yin Yang is not a pair of sneakers or
+# an iphone in a store. By the way Musk
+# sell your stuff, but don't take
+# yourself too seriously, coz u start
+# looking cheap.
