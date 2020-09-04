@@ -11,7 +11,11 @@
     # ncmb
 # vgroup
 # backtrace
+# ck
+    # vgroup
 # yland
+    # rconfig
+    # backtrace
 ################################### ICMB
 def icmb(n, t):
   '''Initial Combination'''
@@ -103,7 +107,7 @@ def vgroup(j, config):
     prev = dif + prev
     if dif > 0: L = i
     if dif < 0: ls.append(i - L)
-  return tuple(ls) #                >>>>
+  return ls #                       >>>>
 
 ############################## BACKTRACE
 def backtrace(D):
@@ -140,25 +144,29 @@ def backtrace(D):
 
 ##################################### CK
 def ck(config):
-  pass
+  '''Check Map Configuration'''
+  global Const
+  for j in range(len(config[0])):
+    grp = vgroup(j, config)
+    if grp != Const[VRT][j]:
+      return False
+  return True
 
 ################################## YLAND
 def yland():
   '''Main Function'''
+  global Shape, Const
   W = Shape[HRZ]
   ls = Const[HRZ]
   D = [rconfig(W, a) for a in ls]
   config = backtrace(D)
-  ck(config[0])
+  for c in config:
+    if ck(c): print(*c, sep='\n')
 
-########################################
+#######################################_
 if __name__ == '__main__':
   load('./config')
   yland()
 
 ################################### log:
-# Yin Yang is not a pair of sneakers or
-# an iphone in a store. By the way Musk
-# sell your stuff, but don't take
-# yourself too seriously, coz u start
-# looking cheap.
+# boredom
